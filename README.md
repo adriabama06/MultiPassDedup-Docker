@@ -74,6 +74,26 @@ Usage: python infer.py -i in_video -o out_video [options]...
 - model_type = model type. Currently, gmfss, rife and gimm is supported.
 - n_pass = max consistent deduplication counts.
 
+## 🐳 Docker
+
+### Build
+```bash
+docker build . -t MultiPassDedup
+```
+
+### Run (Windows)
+```powershell
+docker run --rm -it --gpus all -v .\weights:/MultiPassDedup/weights -v .\workdir:/MultiPassDedup/workdir MultiPassDedup
+```
+
+### Run (Linux)
+```bash
+docker run --rm -it --gpus all -v ./weights:/MultiPassDedup/weights -v ./workdir:/MultiPassDedup/workdir MultiPassDedup
+```
+
+> On first run, if the `weights/` folder is empty or missing `rife48.pkl`, the weights will be downloaded automatically.
+> Place your input videos inside the `workdir/` folder to access them from within the container.
+
 ## 🤗 Acknowledgement
 This project is supported by [SVFI](https://doc.svfi.group/) Development Team.
 
