@@ -78,23 +78,23 @@ Usage: python infer.py -i in_video -o out_video [options]...
 
 ### Build
 ```bash
-docker build . -t multipassdedup
+docker build . -t adriabama06/multipassdedup
 ```
 
 ### Run (Windows)
 ```powershell
-docker run --rm -it --gpus all -v .\weights:/MultiPassDedup/weights -v .\workdir:/MultiPassDedup/workdir multipassdedup
+docker run --rm -it --gpus all -v .\weights:/MultiPassDedup/weights -v .\workdir:/MultiPassDedup/workdir adriabama06/multipassdedup
 ```
 
 ### Run (Linux)
 ```bash
-docker run --rm -it --gpus all -v ./weights:/MultiPassDedup/weights -v ./workdir:/MultiPassDedup/workdir multipassdedup
+docker run --rm -it --gpus all -v ./weights:/MultiPassDedup/weights -v ./workdir:/MultiPassDedup/workdir adriabama06/multipassdedup
 ```
 
 ### Batch script
 Search for .mp4, .mov, .mkv files in the `workdir/` store the output in `workdir/out/` (Edit the batch.sh file to change the parameters)
 ```bash
-docker run --rm -it --gpus all -v ./weights:/MultiPassDedup/weights -v ./workdir:/MultiPassDedup/workdir multipassdedup bash /MultiPassDedup/workdir/batch.sh
+docker run --rm -it --gpus all -v ./weights:/MultiPassDedup/weights -v ./workdir:/MultiPassDedup/workdir adriabama06/multipassdedup bash /MultiPassDedup/workdir/batch.sh
 
 # OR (after executing the docker, inside the terminal)
 ./workdir/batch.sh
